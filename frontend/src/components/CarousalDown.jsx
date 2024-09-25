@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import banthree from "../assets/3.webp";
-import banone from "../assets/1.webp";
-import bantwo from "../assets/2.webp";
-import banfour from "../assets/4.webp";
-import banfive from "../assets/5.webp";
+import bantwo from "../assets/b2.webp";
+import banone from "../assets/b1.webp";
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
-const Carousel = () => {
+const CarouselDown = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [banfour, banfive, banthree];
+  const slides = [banone, bantwo];
 
   // Automatically switch slides every 15 seconds
   useEffect(() => {
@@ -58,4 +55,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default CarouselDown;
