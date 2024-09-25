@@ -9,13 +9,13 @@ const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [banone, bantwo, banthree];
 
-  // Automatically switch slides every 2 seconds
+  // Automatically switch slides every 15 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 15000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="relative w-full h-[600px] overflow-hidden">
@@ -23,7 +23,7 @@ const Carousel = () => {
         <img
           src={slide}
           key={index}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ${
             index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         />
