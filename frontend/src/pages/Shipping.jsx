@@ -81,7 +81,7 @@ const ShippingPolicy = () => {
         </p>
         <p className="mb-4 text-gray-700">
           <strong>Domestic Shipping (Within India):</strong> We offer free
-          shipping on orders over ₹[Insert Free Shipping Threshold]. For orders
+          shipping on orders over ₹999. For orders
           below this threshold, a nominal shipping fee will apply.
         </p>
         <p className="mb-4 text-gray-700">
