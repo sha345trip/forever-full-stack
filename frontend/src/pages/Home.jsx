@@ -6,11 +6,13 @@ import OurPolicy from '../components/OurPolicy'
 import NewsletterBox from '../components/NewsletterBox'
 import Carousel from '../components/Carousel'
 import CarouselDown from '../components/CarousalDown'
+import PopUp from '../components/PopUp'
 
 const Home = () => {
   return (
     <div>
       {/* <Hero /> */}
+      {/* <PopUp/> */}
       <Carousel/>
       <LatestCollection/>
       <BestSeller/>
