@@ -8,7 +8,7 @@ const Policy = () => {
       
       <h2 className="text-2xl font-semibold mt-8 mb-4">Introduction</h2>
       <p className="mb-4">
-        At <strong>All Blueee</strong>, we are committed to protecting your personal information and your right to privacy. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website, make a purchase, or interact with us in any way.
+        At <strong>Sujal Tanwar</strong>, we are committed to protecting your personal information and your right to privacy. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website, make a purchase, or interact with us in any way.
       </p>
       <p className="mb-4">
         By using our website (<a href="https://www.allblueee.com" className="text-blue-600 underline">www.allbluee.com</a>) or purchasing from us, you agree to the collection and use of information in accordance with this policy.

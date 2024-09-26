@@ -13,7 +13,7 @@ const ShippingPolicy = () => {
       </p>
 
       <p className="mb-6 text-gray-700">
-        At All Blueee Store, we are committed to delivering your order promptly
+        At Sujal Tanwar, we are committed to delivering your order promptly
         and efficiently. This Shipping Policy outlines the delivery process,
         timelines, and shipping charges associated with your purchase from{" "}
         <a href="http://www.allblueee.com" className="text-blue-500 underline">

@@ -13,7 +13,7 @@ const Refund = () => {
       </p>
 
       <p className="mb-6 text-gray-700">
-        At All Blueee Store, we strive to ensure that our customers are
+        At Sujal Tanwar, we strive to ensure that our customers are
         satisfied with their purchases. This Refund and Cancellation Policy
         outlines the conditions and procedures for requesting refunds, returns,
         and cancellations for products purchased from our website,{" "}
@@ -56,7 +56,7 @@ const Refund = () => {
           process below).
         </p>
 
-        <h3 className="text-xl font-semibold mb-2">1.2 Order Cancellation by All Blueee Store</h3>
+        <h3 className="text-xl font-semibold mb-2">1.2 Order Cancellation by  Sujal Tanwar</h3>
         <p className="mb-4 text-gray-700">
           We reserve the right to cancel your order in case of:
         </p>

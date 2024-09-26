@@ -9,7 +9,7 @@ const Terms = () => {
       <p className="text-lg mb-4">
         These Terms and Conditions ("Agreement") govern the use of the website{" "}
         <span className="text-blue-500">www.allblueee.com</span> ("Website") and the
-        purchase of products from All Blueee Store ("we," "us," or "our"),
+        purchase of products from Sujal Tanwar ("we," "us," or "our"),
         located in Rajasthan, India. By using our Website or purchasing our
         products, you accept and agree to comply with this Agreement. If you do
         not agree with these Terms and Conditions, you must discontinue using
@@ -23,7 +23,7 @@ const Terms = () => {
           <li>1.1. Customer refers to the person or entity purchasing goods from the Website.</li>
           <li>1.2. Product refers to any goods available for sale on our Website, including blue pottery decor and related items.</li>
           <li>1.3. Order refers to the request for the purchase of Products by a Customer on the Website.</li>
-          <li>1.4. Website refers to www.allblueee.com operated by All Blueee Store.</li>
+          <li>1.4. Website refers to www.allblueee.com operated by Sujal Tanwar.</li>
         </ul>
       </section>
 
@@ -45,7 +45,7 @@ const Terms = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">3. Product Information and Accuracy</h2>
         <ul className="list-disc ml-6 space-y-2">
-          <li>3.1. All Blueee Store strives to ensure that all Product descriptions, images, prices, and other information displayed on the Website are accurate and up-to-date. However, minor differences in appearance may occur due to handcrafting or variations in display screens.</li>
+          <li>3.1. Sujal Tanwar strives to ensure that all Product descriptions, images, prices, and other information displayed on the Website are accurate and up-to-date. However, minor differences in appearance may occur due to handcrafting or variations in display screens.</li>
           <li>3.2. We reserve the right to modify or update any information, including prices, without prior notice. In case of an error in pricing or product information, we reserve the right to cancel the order and refund the amount paid.</li>
         </ul>
       </section>
@@ -75,7 +75,7 @@ const Terms = () => {
         <ul className="list-disc ml-6 space-y-2">
           <li>6.1. Shipping Locations: We offer shipping across India and internationally. Shipping rates and delivery timelines will vary based on your location and will be displayed during checkout.</li>
           <li>6.2. Delivery Timeline: Delivery timelines are estimates and may vary due to external factors, including customs, courier service delays, or force majeure events. We are not responsible for delays caused by the shipping provider.</li>
-          <li>6.3. Risk of Loss: All Blueee Store transfers the risk of loss or damage to the Products to you once the Product is handed over to the shipping carrier. However, we will assist you in tracking and resolving shipping issues.</li>
+          <li>6.3. Risk of Loss: Sujal Tanwar transfers the risk of loss or damage to the Products to you once the Product is handed over to the shipping carrier. However, we will assist you in tracking and resolving shipping issues.</li>
           <li>6.4. Customs and Duties: International shipments may be subject to customs duties and taxes. The recipient is responsible for any such charges.</li>
         </ul>
       </section>
@@ -94,7 +94,7 @@ const Terms = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">8. Intellectual Property Rights</h2>
         <ul className="list-disc ml-6 space-y-2">
-          <li>8.1. Ownership: All content on the Website, including designs, text, images, graphics, logos, and trademarks, are the property of All Blueee Store and are protected by the Copyright Act, 1957, and other applicable intellectual property laws.</li>
+          <li>8.1. Ownership: All content on the Website, including designs, text, images, graphics, logos, and trademarks, are the property of Sujal Tanwar and are protected by the Copyright Act, 1957, and other applicable intellectual property laws.</li>
           <li>8.2. Use Restrictions: You may not reproduce, distribute, or otherwise exploit any content from our Website for commercial or personal purposes without prior written consent.</li>
         </ul>
       </section>
@@ -109,7 +109,7 @@ const Terms = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">10. Limitation of Liability</h2>
         <ul className="list-disc ml-6 space-y-2">
-          <li>10.1. To the fullest extent permitted by applicable law, All Blueee Store shall not be liable for any indirect, incidental, consequential, or punitive damages arising from your use of the Website or Products, including but not limited to loss of profits, data, or goodwill.</li>
+          <li>10.1. To the fullest extent permitted by applicable law, Sujal Tanwar shall not be liable for any indirect, incidental, consequential, or punitive damages arising from your use of the Website or Products, including but not limited to loss of profits, data, or goodwill.</li>
           <li>10.2. In no event will our total liability exceed the value of the Product(s) purchased by you.</li>
         </ul>
       </section>
@@ -117,7 +117,7 @@ const Terms = () => {
       {/* Indemnification */}
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">11. Indemnification</h2>
-        <p>You agree to indemnify and hold harmless All Blueee Store, its officers, employees, and affiliates, from any claims, losses, damages, liabilities, or expenses arising out of your violation of these Terms or misuse of the Website or Products.</p>
+        <p>You agree to indemnify and hold harmless Sujal Tanwar, its officers, employees, and affiliates, from any claims, losses, damages, liabilities, or expenses arising out of your violation of these Terms or misuse of the Website or Products.</p>
       </section>
 
       {/* Governing Law and Dispute Resolution */}
@@ -148,7 +148,7 @@ const Terms = () => {
           If you have any questions, concerns, or feedback regarding these Terms and Conditions, please contact us at:
         </p>
         <p>
-          <strong>All Blueee Store</strong> <br />
+          <strong>Sujal Tanwar</strong> <br />
           Email: <a href="mailto:allblueee2024@gmail.com" className="text-blue-500">allblueee2024@gmail.com</a> <br />
           Phone: +916367485143 <br />
           Address: A-100, Laxmi Narayan Puri, Jaipur, Rajasthan - 302003
