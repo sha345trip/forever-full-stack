@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from './Title';
 
-const CartTotal = ({ discount }) => {
+const CartTotal = ({ discount = 0 }) => {
     const { currency, delivery_fee, getCartAmount } = useContext(ShopContext);
 
     // Calculate the total after applying the discount
@@ -11,31 +11,33 @@ const CartTotal = ({ discount }) => {
 
     return (
         <div className='w-full'>
-            <div className='text-2xl'>
-                <Title text1={'CART'} text2={'TOTALS'} />
+            {/* Title */}
+            <div className='mb-4'>
+                <Title text1="CART" text2="TOTALS" />
             </div>
 
-            <div className='flex flex-col gap-2 mt-2 text-sm'>
-                <div className='flex justify-between'>
+            {/* Price Breakdown */}
+            <div className='flex flex-col gap-3'>
+                <div className='flex justify-between text-base text-gray-700'>
                     <p>Subtotal</p>
-                    <p>{currency} {subtotal}.00</p>
+                    <p>{currency} {subtotal.toFixed(2)}</p>
                 </div>
-                <hr />
-                <div className='flex justify-between'>
+                <hr className='border-t border-gray-300' />
+                <div className='flex justify-between text-base text-gray-700'>
                     <p>Shipping Fee</p>
-                    <p>{currency} {delivery_fee}.00</p>
+                    <p>{currency} {delivery_fee.toFixed(2)}</p>
                 </div>
-                <hr />
+                <hr className='border-t border-gray-300' />
                 {discount > 0 && ( // Show discount if any
-                    <div className='flex justify-between text-green-600'>
+                    <div className='flex justify-between text-base text-green-600'>
                         <p>Discount</p>
-                        <p>- {currency} {discount}.00</p>
+                        <p>- {currency} {discount.toFixed(2)}</p>
                     </div>
                 )}
-                <hr />
-                <div className='flex justify-between'>
+                <hr className='border-t border-gray-300' />
+                <div className='flex justify-between text-lg font-semibold text-gray-900'>
                     <b>Total</b>
-                    <b>{currency} {total < 0 ? 0 : total}.00</b> {/* Ensure total does not go below zero */}
+                    <b>{currency} {(total < 0 ? 0 : total).toFixed(2)}</b> {/* Ensure total does not go below zero */}
                 </div>
             </div>
         </div>
