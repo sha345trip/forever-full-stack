@@ -17,7 +17,7 @@ const CarouselDown = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden">
+    <div className="relative w-full  h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
       {slides.map((slide, index) => (
         <img
           src={slide}
