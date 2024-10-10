@@ -9,7 +9,7 @@ const Product = () => {
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
-  const [size, setSize] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
   const [isAddedToCart, setIsAddedToCart] = useState(false); // State to track if product is added to cart
 
   const navigate = useNavigate(); // Initialize navigate
