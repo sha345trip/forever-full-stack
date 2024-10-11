@@ -18,7 +18,7 @@ const Add = ({token}) => {
   //  const [subCategory, setSubCategory] = useState("Topwear");
    const [bestseller, setBestseller] = useState(false);
    const [sizes, setSizes] = useState([]);
-   const [fragrances, setFragrances] = useState([]);
+
    const onSubmitHandler = async (e) => {
     e.preventDefault();
 
@@ -33,12 +33,6 @@ const Add = ({token}) => {
       // formData.append("subCategory",subCategory)
       formData.append("bestseller",bestseller)
       formData.append("sizes",JSON.stringify(sizes))
-      
-      if (category === "Candles") {
-        formData.append("fragrances", JSON.stringify(fragrances))
-      } else {
-        formData.append("sizes", JSON.stringify(sizes))
-      }
 
       image1 && formData.append("image1",image1)
       image2 && formData.append("image2",image2)
@@ -56,8 +50,6 @@ const Add = ({token}) => {
         setImage3(false)
         setImage4(false)
         setPrice('')
-        setSizes([])
-        setFragrances([])
       } else {
         toast.error(response.data.message)
       }
@@ -151,26 +143,26 @@ const Add = ({token}) => {
         <div>
           <p className='mb-2'>Product Fragrances</p>
           <div className='flex gap-3'>
-            <div onClick={() => setFragrances(prev => prev.includes("Lavender") ? prev.filter(item => item !== "Lavender") : [...prev, "Lavender"])}>
-              <p className={`${fragrances.includes("Lavender") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Lavender</p>
+          <div onClick={() => setSizes(prev => prev.includes("Lavender") ? prev.filter(item => item !== "Lavender") : [...prev, "Lavender"])}>
+              <p className={`${sizes.includes("Lavender") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Lavender</p>
             </div>
-            <div onClick={() => setFragrances(prev => prev.includes("Vanilla") ? prev.filter(item => item !== "Vanilla") : [...prev, "Vanilla"])}>
-              <p className={`${fragrances.includes("Vanilla") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Vanilla</p>
+            <div onClick={() => setSizes(prev => prev.includes("Vanilla") ? prev.filter(item => item !== "Vanilla") : [...prev, "Vanilla"])}>
+              <p className={`${sizes.includes("Vanilla") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Vanilla</p>
             </div>
-            <div onClick={() => setFragrances(prev => prev.includes("Rose") ? prev.filter(item => item !== "Rose") : [...prev, "Rose"])}>
-              <p className={`${fragrances.includes("Rose") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Rose</p>
+            <div onClick={() => setSizes(prev => prev.includes("Rose") ? prev.filter(item => item !== "Rose") : [...prev, "Rose"])}>
+              <p className={`${sizes.includes("Rose") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Rose</p>
             </div>
-            <div onClick={() => setFragrances(prev => prev.includes("Sandalwood") ? prev.filter(item => item !== "Sandalwood") : [...prev, "Sandalwood"])}>
-              <p className={`${fragrances.includes("Sandalwood") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Sandalwood</p>
+            <div onClick={() => setSizes(prev => prev.includes("Sandalwood") ? prev.filter(item => item !== "Sandalwood") : [...prev, "Sandalwood"])}>
+              <p className={`${sizes.includes("Sandalwood") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Sandalwood</p>
             </div>
-            <div onClick={() => setFragrances(prev => prev.includes("Jasmine") ? prev.filter(item => item !== "Jasmine") : [...prev, "Jasmine"])}>
-              <p className={`${fragrances.includes("Jasmine") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Jasmine</p>
+            <div onClick={() => setSizes(prev => prev.includes("Jasmine") ? prev.filter(item => item !== "Jasmine") : [...prev, "Jasmine"])}>
+              <p className={`${sizes.includes("Jasmine") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Jasmine</p>
             </div>
-            <div onClick={() => setFragrances(prev => prev.includes("Coffee") ? prev.filter(item => item !== "Coffee") : [...prev, "Coffee"])}>
-              <p className={`${fragrances.includes("Coffee") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Coffee</p>
+            <div onClick={() => setSizes(prev => prev.includes("Coffee") ? prev.filter(item => item !== "Coffee") : [...prev, "Coffee"])}>
+              <p className={`${sizes.includes("Coffee") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Coffee</p>
             </div>
-            <div onClick={() => setFragrances(prev => prev.includes("Beach") ? prev.filter(item => item !== "Beach") : [...prev, "Beach"])}>
-              <p className={`${fragrances.includes("Beach") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Beach</p>
+            <div onClick={() => setSizes(prev => prev.includes("Beach") ? prev.filter(item => item !== "Beach") : [...prev, "Beach"])}>
+              <p className={`${sizes.includes("Beach") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>Beach</p>
             </div>
           </div>
         </div>

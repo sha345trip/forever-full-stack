@@ -9,7 +9,7 @@ const Product = () => {
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
+  const [size, setSize] = useState('');
   const [isAddedToCart, setIsAddedToCart] = useState(false); // State to track if product is added to cart
 
   const navigate = useNavigate(); // Initialize navigate
@@ -70,7 +70,7 @@ const Product = () => {
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
           <div className='flex flex-col gap-4 my-8'>
-            <p>Select Color</p>
+          <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
             <div className='flex gap-2'>
               {productData.sizes.map((item, index) => (
                 <button
