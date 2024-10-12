@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom' // Import Link for navigation
 const List = ({ token }) => {
 
   const [list, setList] = useState([])
-
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + '/api/product/list')
@@ -37,7 +36,6 @@ const List = ({ token }) => {
       toast.error(error.message)
     }
   }
-
   useEffect(() => {
     fetchList()
   }, [])
@@ -64,13 +62,6 @@ const List = ({ token }) => {
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>{currency}{item.price}</p>
-
-              {/* Edit Button */}
-              <Link 
-                to={`/edit/${item._id}`} 
-                className='text-center text-blue-500 hover:underline'>
-                Edit
-              </Link>
 
               {/* Delete Button */}
               <p onClick={() => removeProduct(item._id)} className='text-right md:text-center cursor-pointer text-lg text-red-500'>

@@ -85,53 +85,5 @@ const singleProduct = async (req, res) => {
         res.json({ success: false, message: error.message })
     }
 }
-const editProduct = async (req, res) => {
-    try {
-        const { productId, name, description, price, category, subCategory, sizes, bestseller } = req.body;
 
-        const image1 = req.files?.image1 && req.files.image1[0];
-        const image2 = req.files?.image2 && req.files.image2[0];
-        const image3 = req.files?.image3 && req.files.image3[0];
-        const image4 = req.files?.image4 && req.files.image4[0];
-
-        const existingProduct = await productModel.findById(productId);
-
-        if (!existingProduct) {
-            return res.status(404).json({ success: false, message: "Product not found" });
-        }
-
-        // Upload new images if they exist
-        const images = [image1, image2, image3, image4].filter((item) => item !== undefined);
-
-        let imagesUrl = existingProduct.image; // Keep the existing images by default
-
-        if (images.length > 0) {
-            const newImagesUrl = await Promise.all(
-                images.map(async (item) => {
-                    let result = await cloudinary.uploader.upload(item.path, { resource_type: 'image' });
-                    return result.secure_url;
-                })
-            );
-            imagesUrl = newImagesUrl; // Replace with new images if uploaded
-        }
-
-        // Update product data
-        existingProduct.name = name || existingProduct.name;
-        existingProduct.description = description || existingProduct.description;
-        existingProduct.price = price ? Number(price) : existingProduct.price;
-        existingProduct.category = category || existingProduct.category;
-        existingProduct.subCategory = subCategory || existingProduct.subCategory;
-        existingProduct.bestseller = bestseller === "true" ? true : false;
-        existingProduct.sizes = sizes ? JSON.parse(sizes) : existingProduct.sizes;
-        existingProduct.image = imagesUrl;
-        existingProduct.date = Date.now(); // Update the date to the current date
-
-        await existingProduct.save();
-
-        res.json({ success: true, message: "Product updated successfully", product: existingProduct });
-    } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: error.message });
-    }
-};
-export { listProducts, addProduct, removeProduct, singleProduct, editProduct }
+export { listProducts, addProduct, removeProduct, singleProduct}

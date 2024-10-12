@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useParams, useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } = useContext(ShopContext);
+  const { products, currency, addToCart, isLoggedIn } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
-  const [isAddedToCart, setIsAddedToCart] = useState(false); // State to track if product is added to cart
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
+  const location = useLocation(); // To get the current URL
 
   const fetchProductData = async () => {
     products.map((item) => {
@@ -29,8 +30,15 @@ const Product = () => {
   }, [productId, products]);
 
   const handleAddToCart = () => {
+    if (!isLoggedIn) {
+      // Save the current cart URL so that user can be redirected back after login
+      const returnUrl = encodeURIComponent('/cart');
+      navigate(`/login?returnUrl=${returnUrl}`);
+      return;
+    }
+
     addToCart(productData._id, size);
-    setIsAddedToCart(true); // Enable "Go To Cart" button after adding to cart
+    setIsAddedToCart(true);
   };
 
   return productData ? (
@@ -74,7 +82,7 @@ const Product = () => {
             />
 
           <div className='flex flex-col gap-4 my-8'>
-          <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
+            <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
             <div className='flex gap-2'>
               {productData.sizes.map((item, index) => (
                 <button

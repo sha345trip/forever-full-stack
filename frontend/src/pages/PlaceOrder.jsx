@@ -22,6 +22,30 @@ const PlaceOrder = () => {
         phone: ''
     })
 
+    const [couponCode, setCouponCode] = useState('');
+    const [discount, setDiscount] = useState(0);
+
+    const validCoupons = {
+        'SAVE10': 10,
+        'SAVE20': 20,
+        'FESTIVE30': 30,
+    };
+
+    const applyCoupon = () => {
+        if (validCoupons[couponCode]) {
+            setDiscount(validCoupons[couponCode]);
+            toast.success(`Coupon applied! You get ${validCoupons[couponCode]}% off.`);
+        } else {
+            setDiscount(0);
+            toast.error('Invalid coupon code.');
+        }
+    };
+
+    const getTotalAmountWithDiscount = () => {
+        const totalAmount = getCartAmount() + delivery_fee;
+        return totalAmount - (totalAmount * discount / 100);
+    };
+
     const onChangeHandler = (event) => {
         const name = event.target.name
         const value = event.target.value
@@ -78,7 +102,7 @@ const PlaceOrder = () => {
             let orderData = {
                 address: formData,
                 items: orderItems,
-                amount: getCartAmount() + delivery_fee
+                amount: getTotalAmountWithDiscount()
             }
             
 
@@ -156,9 +180,35 @@ const PlaceOrder = () => {
 
             {/* ------------- Right Side ------------------ */}
             <div className='mt-8'>
+                <div className='mt-8 min-w-80'>
+                    {/* Apply Coupon Section */}
+                <div className="mt-8">
+                    <Title text1={'APPLY'} text2={'COUPON'} />
+                    <div className="flex gap-3">
+                        <input
+                            type="text"
+                            value={couponCode}
+                            onChange={(e) => setCouponCode(e.target.value)}
+                            placeholder="Enter coupon code"
+                            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+                        />
+                        <button
+                            type="button"
+                            onClick={applyCoupon}
+                            className="bg-blue-500 text-white px-4 py-2 text-sm"
+                        >
+                            Apply Coupon
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* ------------- Right Side ------------------ */}
+            <div className='mt-8'>
 
                 <div className='mt-8 min-w-80'>
-                    <CartTotal />
+                    <CartTotal discount={discount}/>
+                </div>
                 </div>
 
                 <div className='mt-12'>

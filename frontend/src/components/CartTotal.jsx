@@ -5,9 +5,10 @@ import Title from './Title';
 const CartTotal = ({ discount = 0 }) => {
     const { currency, delivery_fee, getCartAmount } = useContext(ShopContext);
 
-    // Calculate the total after applying the discount
+    // Calculate the subtotal and total after applying the discount
     const subtotal = getCartAmount();
-    const total = subtotal + delivery_fee - discount; // Total = Subtotal + Delivery Fee - Discount
+    const effectiveDeliveryFee = subtotal >= 499 ? 0 : delivery_fee;
+    const total = subtotal*(1-(discount/100)) + delivery_fee; // Total = Subtotal + Delivery Fee - Discount
 
     return (
         <div className='w-full'>
@@ -23,21 +24,28 @@ const CartTotal = ({ discount = 0 }) => {
                     <p>{currency} {subtotal.toFixed(2)}</p>
                 </div>
                 <hr className='border-t border-gray-300' />
+                
+                {/* Shipping Fee */}
                 <div className='flex justify-between text-base text-gray-700'>
                     <p>Shipping Fee</p>
-                    <p>{currency} {delivery_fee.toFixed(2)}</p>
+                    <p>{currency} {effectiveDeliveryFee.toFixed(2)}</p>
                 </div>
                 <hr className='border-t border-gray-300' />
-                {discount > 0 && ( // Show discount if any
+
+                {/* Display Discount (if applicable) */}
+                {discount > 0 && (
                     <div className='flex justify-between text-base text-green-600'>
                         <p>Discount</p>
-                        <p>- {currency} {discount.toFixed(2)}</p>
+                        <p>- {currency} {subtotal*(discount/100).toFixed(2)}</p>
                     </div>
                 )}
                 <hr className='border-t border-gray-300' />
+
+                {/* Total */}
                 <div className='flex justify-between text-lg font-semibold text-gray-900'>
                     <b>Total</b>
-                    <b>{currency} {(total < 0 ? 0 : total).toFixed(2)}</b> {/* Ensure total does not go below zero */}
+                    {/* Ensure total does not go below zero */}
+                    <b>{currency} {(total > 0 ? total : 0).toFixed(2)}</b>
                 </div>
             </div>
         </div>
