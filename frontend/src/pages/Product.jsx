@@ -30,6 +30,11 @@ const Product = () => {
   }, [productId, products]);
 
   const handleAddToCart = () => {
+    if (!isLoggedIn) {
+      navigate('/login')
+      toast.error("Please login first");
+      return; // Stop further execution if not logged in
+    }
     addToCart(productData._id, size);
     setIsAddedToCart(true); // Enable "Go To Cart" button after adding to cart
   };
