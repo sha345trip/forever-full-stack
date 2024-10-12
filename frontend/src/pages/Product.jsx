@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import { toast } from 'react-toastify';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart, isLoggedIn } = useContext(ShopContext);
+  const { products, currency, addToCart, isLoggedIn } = useContext(ShopContext); // Add isLoggedIn to check login status
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isAddedToCart, setIsAddedToCart] = useState(false); // State to track if product is added to cart
 
-  const navigate = useNavigate();
-  const location = useLocation(); // To get the current URL
+  const navigate = useNavigate(); // Initialize navigate
 
   const fetchProductData = async () => {
     products.map((item) => {
@@ -31,16 +31,14 @@ const Product = () => {
 
   const handleAddToCart = () => {
     if (!isLoggedIn) {
-      // Save the current cart URL so that user can be redirected back after login
-      const returnUrl = encodeURIComponent('/cart');
-      navigate(`/login?returnUrl=${returnUrl}`);
-      return;
+      navigate('/login')
+      toast.error("Please login first");
+      return; // Stop further execution if not logged in
     }
-
     addToCart(productData._id, size);
-    setIsAddedToCart(true);
+    setIsAddedToCart(true); // Enable "Go To Cart" button after adding to cart
   };
-
+  
   return productData ? (
     <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
       {/*----------- Product Data-------------- */}
