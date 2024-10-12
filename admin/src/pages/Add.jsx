@@ -3,7 +3,8 @@ import {assets} from '../assets/assets'
 import axios from 'axios'
 import { backendUrl } from '../App'
 import { toast } from 'react-toastify'
-
+import ReactQuill from 'react-quill';  // Import react-quill
+import 'react-quill/dist/quill.snow.css';
 const Add = ({token}) => {
 
   const [image1,setImage1] = useState(false)
@@ -91,9 +92,15 @@ const Add = ({token}) => {
         </div>
 
         <div className='w-full'>
-          <p className='mb-2'>Product description</p>
-          <textarea onChange={(e)=>setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Write content here' required/>
-        </div>
+        <p className='mb-2'>Product description</p>
+        <ReactQuill
+          value={description}
+          onChange={setDescription}
+          className='w-full max-w-[500px]'
+          placeholder='Write content here'
+          required
+        />
+      </div>
 
         <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>
 

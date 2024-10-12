@@ -68,7 +68,11 @@ const Product = () => {
             <p className='pl-2'>(122)</p>
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
-          <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
+          <div 
+              className='mt-5 text-gray-500 md:w-4/5' 
+              dangerouslySetInnerHTML={{ __html: productData.description }} 
+            />
+
           <div className='flex flex-col gap-4 my-8'>
           <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
             <div className='flex gap-2'>
