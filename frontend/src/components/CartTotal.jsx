@@ -36,7 +36,7 @@ const CartTotal = ({ discount = 0 }) => {
                 {discount > 0 && (
                     <div className='flex justify-between text-base text-green-600'>
                         <p>Discount</p>
-                        <p>- {currency} {subtotal*(discount/100).toFixed(2)}</p>
+                        <p>- {currency} {Math.round(subtotal * (discount / 100))}</p>
                     </div>
                 )}
                 <hr className='border-t border-gray-300' />

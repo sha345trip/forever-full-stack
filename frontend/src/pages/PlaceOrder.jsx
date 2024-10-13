@@ -188,7 +188,7 @@ const PlaceOrder = () => {
                         <input
                             type="text"
                             value={couponCode}
-                            onChange={(e) => setCouponCode(e.target.value)}
+                            onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                             placeholder="Enter coupon code"
                             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
                         />

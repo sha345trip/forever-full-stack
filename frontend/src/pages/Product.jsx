@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart, isLoggedIn } = useContext(ShopContext); // Add isLoggedIn to check login status
+  const { products, currency, addToCart } = useContext(ShopContext); // Add isLoggedIn to check login status
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
