@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
 
         <div>
-            <img src={assets.logo} className='mb-5 w-32' alt="" />
+            <img src={assets.logo} className='mb-5 w-46 h-20' alt="" />
             <p className='w-full md:w-2/3 text-gray-600'>
             All Blueee is a royal home decor brand inspired by Jaipur’s rich cultural heritage. We specialize in handcrafted blue pottery, blending traditional artistry with modern design. Founded by IIT Roorkee students, we aim to bring elegance and timeless craftsmanship into your home while supporting local artisans and eco-friendly practices.
             </p>

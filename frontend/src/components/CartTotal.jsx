@@ -7,8 +7,13 @@ const CartTotal = ({ discount = 0 }) => {
 
     // Calculate the subtotal and total after applying the discount
     const subtotal = getCartAmount();
-    const effectiveDeliveryFee = subtotal >= 499 ? 0 : delivery_fee;
-    const total = subtotal*(1-(discount/100)) + delivery_fee; // Total = Subtotal + Delivery Fee - Discount
+    const effectiveDeliveryFee = subtotal === 0 
+        ? 0 
+        : subtotal >= 499 
+        ? 0 
+        : delivery_fee;
+
+    const total = subtotal*(1-(discount/100)) + effectiveDeliveryFee; // Total = Subtotal + Delivery Fee - Discount
 
     return (
         <div className='w-full'>

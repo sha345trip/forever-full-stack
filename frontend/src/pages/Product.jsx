@@ -69,11 +69,6 @@ const Product = () => {
             <p className='pl-2'>(122)</p>
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
-          <div 
-              className='mt-5 text-gray-500 md:w-4/5' 
-              dangerouslySetInnerHTML={{ __html: productData.description }} 
-            />
-
           <div className='flex flex-col gap-4 my-8'>
             <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
             <div className='flex gap-2'>
@@ -87,10 +82,7 @@ const Product = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* Add to Cart Button */}
-          <div className='flex gap-4'>
+            <div className='flex gap-4'>
             <button
               onClick={handleAddToCart} // Add to cart and enable "Go to Cart" button
               className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'
@@ -107,6 +99,17 @@ const Product = () => {
               GO TO CART
             </button>
           </div>
+          <h1 className='font-medium text-2xl mt-2'>Product Details</h1>
+          <div 
+              className='mt-5 text-black md:w-4/5' 
+              dangerouslySetInnerHTML={{ __html: productData.description }} 
+            />
+
+          
+          </div>
+
+          {/* Add to Cart Button */}
+          
 
           <hr className='mt-8 sm:w-4/5' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
