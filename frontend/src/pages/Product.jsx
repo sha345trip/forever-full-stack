@@ -114,7 +114,8 @@ const Product = () => {
           <hr className='mt-8 sm:w-4/5' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p>100% Original product.</p>
-            <p>Easy return and exchange policy within 7 days.</p>
+            <p>Easy return and exchange policy within 7 days.<a href='/refund' className='text-black'> Click Here</a> to know more.</p>
+            <img src={assets.band}/>
           </div>
         </div>
       </div>
