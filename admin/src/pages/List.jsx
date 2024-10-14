@@ -63,6 +63,10 @@ const List = ({ token }) => {
               <p>{item.category}</p>
               <p>{currency}{item.price}</p>
 
+              <Link to={`/edit/${item._id}`} className='text-center text-blue-500'>
+                Edit
+              </Link>
+
               {/* Delete Button */}
               <p onClick={() => removeProduct(item._id)} className='text-right md:text-center cursor-pointer text-lg text-red-500'>
                 X
