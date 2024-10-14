@@ -46,7 +46,7 @@ const PlaceOrder = () => {
         const disc = (subt * discount / 100).toFixed(2);
         let totalAmount = (subt + delivery_fee).toFixed(2);
         if(subt >=499){
-            totalAmount = subttoFixed(2);
+            totalAmount = subt.toFixed(2);
         }
         return totalAmount - disc;
     };
