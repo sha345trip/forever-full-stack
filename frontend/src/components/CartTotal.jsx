@@ -50,7 +50,7 @@ const CartTotal = ({ discount = 0 }) => {
                 <div className='flex justify-between text-lg font-semibold text-gray-900'>
                     <b>Total</b>
                     {/* Ensure total does not go below zero */}
-                    <b>{currency} {(total > 0 ? total : 0).toFixed(2)}</b>
+                    <b>{currency} {Math.round(total > 0 ? total : 0)}</b>
                 </div>
             </div>
         </div>

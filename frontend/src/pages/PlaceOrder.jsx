@@ -42,8 +42,10 @@ const PlaceOrder = () => {
     };
 
     const getTotalAmountWithDiscount = () => {
-        const totalAmount = getCartAmount() + delivery_fee;
-        return totalAmount - (totalAmount * discount / 100);
+        const subt = getCartAmount();
+        const disc = (subt * discount / 100).toFixed(2);
+        const totalAmount = (subt + delivery_fee).toFixed(2);
+        return totalAmount - disc;
     };
 
     const onChangeHandler = (event) => {
