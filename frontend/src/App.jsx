@@ -41,7 +41,7 @@ const App = () => {
       s.parentNode.insertBefore(t, s);
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
   
-    fbq('init', '840990351569535'); // Replace 'your-pixel-id-goes-here' with your actual Pixel ID
+    fbq('init', '840970698201415'); // Replace 'your-pixel-id-goes-here' with your actual Pixel ID
     fbq('track', 'PageView');
     }, []);
 
@@ -54,7 +54,7 @@ const App = () => {
             height="1"
             width="1"
             style="display:none"
-            src="https://www.facebook.com/tr?id=840990351569535&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=840970698201415&ev=PageView&noscript=1"
             alt="Meta Pixel"
           />`
         }
