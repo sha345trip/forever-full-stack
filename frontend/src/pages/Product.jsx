@@ -14,7 +14,10 @@ const Product = () => {
   const [isAddedToCart, setIsAddedToCart] = useState(false); // State to track if product is added to cart
 
   const navigate = useNavigate(); // Initialize navigate
-
+  const handleNavigation = () => {
+    navigate('/cart');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const fetchProductData = async () => {
     products.map((item) => {
       if (item._id === productId) {
@@ -68,7 +71,11 @@ const Product = () => {
             <img src={assets.star_dull_icon} alt="" className="w-3.5" />
             <p className='pl-2'>(122)</p>
           </div>
-          <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
+          <div>
+          <p className='mt-3 text-xl text-white font-medium bg-red-500 inline-block border-red-700 rounded-md px-2 py-1'>Festive Sale</p>
+          <p className='mt-5 text-3xl font-medium'>{currency}{Math.round(productData.price-(0.3*productData.price))}</p>
+          <p className=' mt-2 text-xl font-medium flex flex-row gap-2'>M.R.P:<p className=' text-xl font-medium line-through'>{currency}{productData.price}</p></p>
+          </div>
           <div className='flex flex-col gap-4 my-8'>
             <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
             <div className='flex gap-2'>
@@ -92,7 +99,7 @@ const Product = () => {
 
             {/* Go To Cart Button */}
             <button
-              onClick={() => navigate('/cart')} // Navigate to /cart page on click
+              onClick={handleNavigation} // Navigate to /cart page on click
               className={`bg-black text-white px-8 py-3 text-sm ${!isAddedToCart ? 'cursor-not-allowed opacity-50' : 'active:bg-black'}`}
               disabled={!isAddedToCart} // Disable button if product is not added to cart
             >

@@ -2,12 +2,17 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title';
 import ProductItem from './ProductItem';
+import { useNavigate } from 'react-router-dom';
 
 const LatestCollection = () => {
-
+    const navigate = useNavigate();
     const { products } = useContext(ShopContext);
     const [latestProducts,setLatestProducts] = useState([]);
 
+    const handleNavigation = () => {
+        navigate('/collection');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
     useEffect(()=>{
         setLatestProducts(products.slice(0,10));
     },[products])
@@ -30,6 +35,14 @@ const LatestCollection = () => {
                         </div>
                     ))
                 }
+            </div>
+            <div className="mt-5 flex justify-center items-center">
+            <button
+              onClick={handleNavigation}
+              className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'
+            >
+              Explore Our Products
+            </button>
             </div>
     </div>
   )

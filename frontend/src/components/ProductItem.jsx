@@ -3,7 +3,6 @@ import { ShopContext } from '../context/ShopContext'
 import {Link} from 'react-router-dom'
 
 const ProductItem = ({id,image,name,price}) => {
-    
     const {currency} = useContext(ShopContext);
 
   return (
@@ -12,7 +11,11 @@ const ProductItem = ({id,image,name,price}) => {
         <img className='hover:scale-110 transition ease-in-out w-full h-[300px] object-cover rounded-t-lg' src={image[0]} alt="" />
       </div>
       <p className='pt-3 pb-1 text-sm'>{name}</p>
-      <p className=' text-sm font-medium'>{currency}{price}</p>
+      <div className='flex flex-row justify-between'>
+      <p className=' text-l font-medium'>{currency}{Math.round(price-(0.3*price))}</p>
+      <p className='font-medium text-red-500'>Festive Sale</p>
+      </div>
+      <p className='text-sm font-medium flex flex-row gap-1'>M.R.P:<p className=' text-sm font-medium line-through decoration-1'> {currency}{price}</p></p>
     </Link>
   )
 }
