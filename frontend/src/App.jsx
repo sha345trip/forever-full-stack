@@ -20,6 +20,7 @@ import Terms from './pages/Terms'
 import Refund from './pages/Refund'
 import ShippingPolicy from './pages/Shipping'
 import {Helmet} from 'react-helmet';
+import axios from 'axios';
 
 const App = () => {
   useEffect(() => {
@@ -44,6 +45,43 @@ const App = () => {
     fbq('init', '1068616654649554'); // Replace 'your-pixel-id-goes-here' with your actual Pixel ID
     fbq('track', 'PageView');
     }, []);
+
+  const sendMetaEvent = async () => {
+    try {
+        const eventData = {
+            data: [
+                {
+                    event_name: "Purchase",
+                    event_time: Math.floor(new Date() / 1000), // Current time in seconds
+                    action_source: "website",
+                    user_data: {
+                        em: [
+                            "7b17fb0bd173f625b58636fb796407c22b3d16fc78302d79f0fd30c2fc2fc068" // Example email hash
+                        ],
+                        ph: [
+                            null // Placeholder for phone number
+                        ]
+                    },
+                    custom_data: {
+                        currency: "USD",
+                        value: "142.52" // Purchase value
+                    },
+                    original_event_data: {
+                        event_name: "Purchase",
+                        event_time: Math.floor(new Date() / 1000) // Current time in seconds
+                    }
+                }
+            ]
+        };
+
+        const response = await axios.post('http://localhost:4000/api/meta/event', eventData);
+        console.log('Meta Event Sent:', response.data);
+    } catch (error) {
+        console.error('Failed to send Meta event:', error);
+    }
+};
+
+
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <Helmet>
@@ -79,6 +117,8 @@ const App = () => {
         <Route path='/Shipping' element={<ShippingPolicy />} />
       </Routes>
       <Footer />
+      {/* Add a button to trigger the Meta event for testing */}
+      <button onClick={sendMetaEvent}>Trigger Meta Event</button>
     </div>
   )
 }
