@@ -56,7 +56,7 @@ const PlaceOrder = () => {
         const value = event.target.value
         setFormData(data => ({ ...data, [name]: value }))
     }
-    const isEligible = false;
+    const isEligible = true;
     const initPay = (order) => {
         const options = {
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -124,13 +124,14 @@ const PlaceOrder = () => {
 
                 // API Calls for COD
                 case 'cod':
-                    // const response = await axios.post(backendUrl + '/api/order/place',orderData,{headers:{token}})
-                    // if (response.data.success) {
-                    //     setCartItems({})
-                    //     navigate('/orders')
-                    // } else {
-                    //     toast.error(response.data.message)
-                    // }
+                    const response = await axios.post(backendUrl + '/api/order/place',orderData,{headers:{token}})
+                    if (response.data.success) {
+                        setCartItems({})
+                        navigate('/')
+                        toast.success("Order Placed Succesfully")
+                    } else {
+                        toast.error(response.data.message)
+                    }
                     if (!isEligible) {
                         alert('Not eligible for Cash on Delivery');
                       } else {
@@ -333,7 +334,7 @@ const PlaceOrder = () => {
                                 className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' && isEligible ? 'bg-green-400' : ''}`}
                             ></p>
                             <p className="text-gray-500 text-sm font-medium mx-4">CASH ON DELIVERY</p>
-                            <p className="text-red-500 text-xs font-medium">Not Eligible</p>
+                            {/* <p className="text-red-500 text-xs font-medium">Not Eligible</p> */}
                             </div>
                     </div>
                     <div className='w-full text-end mt-8'>

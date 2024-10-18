@@ -9,7 +9,7 @@ const CartTotal = ({ discount = 0 }) => {
     const subtotal = getCartAmount();
     const effectiveDeliveryFee = subtotal === 0 
         ? 0 
-        : subtotal >= 499 
+        : subtotal >= 399 
         ? 0 
         : delivery_fee;
 
