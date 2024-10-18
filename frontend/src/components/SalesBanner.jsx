@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ban from "../assets/1.webp";
+import ban from "../assets/1.jpg";
 
 const SalesBanner = () => {
   const [showBanner, setShowBanner] = useState(false);

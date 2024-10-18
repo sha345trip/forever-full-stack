@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import banthree from "../assets/3.png";
 import banfour from "../assets/4.png";
 import banfive from "../assets/5.webp";
-import bansix from "../assets/6.webp";
+import bansix from "../assets/6.jpg";
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
