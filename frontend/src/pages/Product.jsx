@@ -73,8 +73,8 @@ const Product = () => {
           </div>
           <div>
           <p className='mt-3 text-xl text-white font-medium bg-red-500 inline-block border-red-700 rounded-md px-2 py-1'>Festive Sale</p>
-          <p className='mt-5 text-3xl font-medium'>{currency}{Math.round(productData.price-(0.3*productData.price))}</p>
-          <p className=' mt-2 text-xl font-medium flex flex-row gap-2'>M.R.P:<p className=' text-xl font-medium line-through'>{currency}{productData.price}</p></p>
+          <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
+          <p className=' mt-2 text-xl font-medium flex flex-row gap-2'>M.R.P:<p className=' text-xl font-medium line-through'>{currency}{Math.round(productData.price+(0.3*productData.price))}</p></p>
           </div>
           <div className='flex flex-col gap-4 my-8'>
             <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>

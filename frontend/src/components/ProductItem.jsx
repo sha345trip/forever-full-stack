@@ -12,10 +12,10 @@ const ProductItem = ({id,image,name,price}) => {
       </div>
       <p className='pt-3 pb-1 text-sm'>{name}</p>
       <div className='flex flex-row justify-between'>
-      <p className=' text-l font-medium'>{currency}{Math.round(price-(0.3*price))}</p>
+      <p className=' text-l font-medium'> {currency}{price}</p>
       <p className='font-medium text-red-500'>Festive Sale</p>
       </div>
-      <p className='text-sm font-medium flex flex-row gap-1'>M.R.P:<p className=' text-sm font-medium line-through decoration-1'> {currency}{price}</p></p>
+      <p className='text-sm font-medium flex flex-row gap-1'>M.R.P:<p className=' text-sm font-medium line-through decoration-1'>{currency}{Math.round(price+(0.3*price))}</p></p>
     </Link>
   )
 }

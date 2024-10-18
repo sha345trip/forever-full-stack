@@ -39,7 +39,7 @@ const LatestCollection = () => {
             <div className="mt-5 flex justify-center items-center">
             <button
               onClick={handleNavigation}
-              className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'
+              className='bg-black text-white px-8 py-3 text-l active:bg-gray-700'
             >
               Explore Our Products
             </button>
