@@ -36,7 +36,7 @@ const LatestCollection = () => {
                     ))
                 }
             </div>
-            <div className="mt-5 flex justify-center items-center">
+            <div className="mt-10 flex justify-center items-center">
             <button
               onClick={handleNavigation}
               className='bg-black text-white px-8 py-3 text-l active:bg-gray-700'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import bantwo from "../assets/b2.webp";
-import banone from "../assets/b1.webp";
+import bantwo from "../assets/b2.png";
+import banone from "../assets/b1.png";
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
@@ -17,7 +17,7 @@ const CarouselDown = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full  h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+    <div className="relative w-full  h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden mt-40">
       {slides.map((slide, index) => (
         <img
           src={slide}

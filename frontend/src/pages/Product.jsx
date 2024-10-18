@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
-import { toast } from 'react-toastify';
+import Reviews from '../components/Reviews';
 
 const Product = () => {
   const { productId } = useParams();
@@ -77,7 +77,7 @@ const Product = () => {
           <p className=' mt-2 text-xl font-medium flex flex-row gap-2'>M.R.P:<p className=' text-xl font-medium line-through'>{currency}{Math.round(productData.price+(0.3*productData.price))}</p></p>
           </div>
           <div className='flex flex-col gap-4 my-8'>
-            <p>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
+            <p className='font-medium'>{productData.category === 'Candles' ? 'Select Fragrance' : 'Select Color'}</p>
             <div className='flex gap-2'>
               {productData.sizes.map((item, index) => (
                 <button
@@ -115,9 +115,6 @@ const Product = () => {
           
           </div>
 
-          {/* Add to Cart Button */}
-          
-
           <hr className='mt-8 sm:w-4/5' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p>100% Original product.</p>
@@ -129,6 +126,7 @@ const Product = () => {
 
       {/* --------- display related products ---------- */}
       <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+      <Reviews/>
     </div>
   ) : <div className='opacity-0'></div>;
 };
