@@ -117,8 +117,6 @@ const App = () => {
         <Route path='/Shipping' element={<ShippingPolicy />} />
       </Routes>
       <Footer />
-      {/* Add a button to trigger the Meta event for testing */}
-      <button onClick={sendMetaEvent}>Trigger Meta Event</button>
     </div>
   )
 }
