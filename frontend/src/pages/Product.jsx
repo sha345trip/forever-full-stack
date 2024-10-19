@@ -4,6 +4,8 @@ import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
 import Reviews from '../components/Reviews';
+import axios from 'axios';
+
 
 const Product = () => {
   const { productId } = useParams();
@@ -36,6 +38,40 @@ const Product = () => {
     addToCart(productData._id, size);
     setIsAddedToCart(true); // Enable "Go To Cart" button after adding to cart
   };
+  const sendMetaEvent = async () => {
+    try {
+        const eventData = {
+            data: [
+                {
+                    event_name: "Purchase",
+                    event_time: Math.floor(new Date() / 1000), // Current time in seconds
+                    action_source: "website",
+                    user_data: {
+                        em: [
+                            "7b17fb0bd173f625b58636fb796407c22b3d16fc78302d79f0fd30c2fc2fc068" // Example email hash
+                        ],
+                        ph: [
+                            null // Placeholder for phone number
+                        ]
+                    },
+                    custom_data: {
+                        currency: "USD",
+                        value: "142.52" // Purchase value
+                    },
+                    original_event_data: {
+                        event_name: "Cart",
+                        event_time: Math.floor(new Date() / 1000) // Current time in seconds
+                    }
+                }
+            ]
+        };
+
+        const response = await axios.post('http://localhost:4000/api/meta/event', eventData);
+        console.log('Meta Event Sent:', response.data);
+    } catch (error) {
+        console.error('Failed to send Meta event:', error);
+    }
+};
   
   return productData ? (
     <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
@@ -91,7 +127,10 @@ const Product = () => {
             </div>
             <div className='flex gap-4'>
             <button
-              onClick={handleAddToCart} // Add to cart and enable "Go to Cart" button
+              onClick={() => {
+                handleAddToCart();
+                sendMetaEvent();
+              }} // Add to cart and enable "Go to Cart" button
               className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'
             >
               ADD TO CART

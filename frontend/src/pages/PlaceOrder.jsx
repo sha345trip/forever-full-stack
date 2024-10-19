@@ -172,6 +172,40 @@ const PlaceOrder = () => {
         }
     }
 
+    const sendMetaEvent = async () => {
+        try {
+            const eventData = {
+                data: [
+                    {
+                        event_name: "Purchase",
+                        event_time: Math.floor(new Date() / 1000), // Current time in seconds
+                        action_source: "website",
+                        user_data: {
+                            em: [
+                                "7b17fb0bd173f625b58636fb796407c22b3d16fc78302d79f0fd30c2fc2fc068" // Example email hash
+                            ],
+                            ph: [
+                                null // Placeholder for phone number
+                            ]
+                        },
+                        custom_data: {
+                            currency: "USD",
+                            value: "142.52" // Purchase value
+                        },
+                        original_event_data: {
+                            event_name: "Purchase",
+                            event_time: Math.floor(new Date() / 1000) // Current time in seconds
+                        }
+                    }
+                ]
+            };
+    
+            const response = await axios.post('http://localhost:4000/api/meta/event', eventData);
+            console.log('Meta Event Sent:', response.data);
+        } catch (error) {
+            console.error('Failed to send Meta event:', error);
+        }
+    };
 
     return (
         <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t'>
@@ -338,7 +372,7 @@ const PlaceOrder = () => {
                             </div>
                     </div>
                     <div className='w-full text-end mt-8'>
-                        <button type='submit' className='bg-black text-white px-16 py-3 text-sm'>PLACE ORDER</button>
+                        <button onClick={sendMetaEvent} type='submit' className='bg-black text-white px-16 py-3 text-sm'>PLACE ORDER</button>
                     </div>
                 </div>
             </div>

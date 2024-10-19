@@ -56,12 +56,12 @@ export default {
 		},
 		keyframes: {
 			marquee: {
-			  '0%': { transform: 'translateX(100%)' },
-			  '100%': { transform: 'translateX(-100%)' },
+			  '0%': { transform: 'translateX(100%)' },  // Start with text fully outside the right side
+          	  '100%': { transform: 'translateX(-100%)' },
 			},
 		  },
 		  animation: {
-			marquee: 'marquee 30s linear infinite', // Adjust the duration as needed
+			marquee: 'marquee 25s linear infinite 0s', // Adjust the duration as needed
 		  },
 	  },
 	},
